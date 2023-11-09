@@ -1,25 +1,49 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass{article}
+\documentclass[13pt, table]{extarticle} %ext variant allows adjustment of fontsize
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Using Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{etex}
 
-\usepackage{geometry}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{graphicx}
+
+% Math
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{graphicx}
-\usepackage{color}
-\usepackage{bm}
-\usepackage{cleveref}
+
+% Inclusion of graphics
+\usepackage{caption, subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pdfpages}
+
+%codeblocks
+\usepackage{listings}
+
+% Frontpage and headers
+\usepackage{fancyhdr}
+
+%\usepackage{color}
 \usepackage{float}
-\usepackage{autonum}
+
+% Danish language specific
 \usepackage[danish]{babel}
+\usepackage{icomma} % Fixes comma spacing
+
+% For links and references:
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{autonum}
+
+% For tables:
+\usepackage{multirow}
+
 
 \graphicspath{{./figures/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 % Other Settings
 
@@ -27,7 +51,16 @@
 \def\dunderline#1{\underline{\underline{#1}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\geometry{a4paper}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\renewcommand{\subsectionmark}[1]{}
+\fancyhead[L]{} % Upper left text
+\chead{\nouppercase{\rightmark}}
+\fancyhead[R]{} % Upper right text
+\usepackage{lastpage}
+\fancyfoot[R]{ {\thepage}  /  \pageref{LastPage}}
+\def\doubleunderline#1{\underline{\underline{#1}}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
